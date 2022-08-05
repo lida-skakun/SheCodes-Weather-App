@@ -62,3 +62,8 @@ a {
   text-transform: capitalize;
   margin: 0;
 }
+
+.weatherIcon {
+  width: 50%;
+  margin: 0 auto;
+}
