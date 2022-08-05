@@ -14,10 +14,11 @@
 }
 
 .searchForm {
-  margin-bottom: 5% !important;
+  margin-bottom: 5%;
 }
 
 .searchForm button {
+  width: 10%;
   background: #d9edfd;
   border: 1.5px solid #42a5f5;
 }
