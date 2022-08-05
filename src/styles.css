@@ -1,0 +1,12 @@
+.searchForm {
+  position: relative;
+  display: flex;
+  min-width: 100px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 14px;
+}
