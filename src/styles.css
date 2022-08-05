@@ -1,0 +1,33 @@
+.container {
+  margin: 5%;
+  width: 50%;
+  font-family: "Poppins", sans-serif;
+}
+
+.searchCity,
+#locationButton {
+  border: 1.5px solid #42a5f5;
+  color: #5a6275;
+  padding: 5px;
+  width: 100%;
+  border-radius: 0.2em;
+}
+
+.searchForm {
+  margin-bottom: 5% !important;
+}
+
+.searchForm button {
+  background: #d9edfd;
+  border: 1.5px solid #42a5f5;
+}
+
+.searchForm button:hover,
+#locationButton:hover {
+  cursor: pointer;
+}
+
+#locationButton {
+  background: #d9edfd;
+  padding: 6px;
+}
