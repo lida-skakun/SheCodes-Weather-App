@@ -28,6 +28,20 @@ formatDate();
 let apiKey = "93791ed1c5ac3002a2880b95c37460d5";
 let apiEndpoint = `https://api.openweathermap.org/data/2.5/weather?`;
 
+function showWeather(response) {
+  let temperatureElement = document.querySelector("h1");
+  let descriptionElement = document.querySelector("#description");
+  let cityElement = document.querySelector("#location");
+
+  let temperature = Math.round(response.data.main.temp);
+  let description = response.data.weather[0].description;
+  let city = response.data.name;
+
+  temperatureElement.innerHTML = `${temperature}`;
+  descriptionElement.innerHTML = `${description}`;
+  cityElement.innerHTML = `${city}`;
+}
+
 function searchWeather(event) {
   event.preventDefault();
   let city = document.querySelector("#searchCity").value;
