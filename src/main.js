@@ -27,3 +27,10 @@ formatDate();
 
 let apiKey = "93791ed1c5ac3002a2880b95c37460d5";
 let apiEndpoint = `https://api.openweathermap.org/data/2.5/weather?`;
+
+function getCoordinates() {
+  navigator.geolocation.getCurrentPosition(findPosition);
+}
+
+let locationButton = document.querySelector("#locationButton");
+locationButton.addEventListener("click", getCoordinates);
