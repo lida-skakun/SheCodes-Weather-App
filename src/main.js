@@ -28,6 +28,14 @@ formatDate();
 let apiKey = "93791ed1c5ac3002a2880b95c37460d5";
 let apiEndpoint = `https://api.openweathermap.org/data/2.5/weather?`;
 
+function findPosition(location) {
+  let latitude = location.coords.latitude;
+  let longitude = location.coords.longitude;
+  let apiUrl = `${apiEndpoint}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(showWeather);
+}
+
 function getCoordinates() {
   navigator.geolocation.getCurrentPosition(findPosition);
 }
