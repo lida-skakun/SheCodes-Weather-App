@@ -51,6 +51,11 @@ a {
   color: #42a5f5;
 }
 
+#adUnit {
+  position: relative;
+  top: -25px;
+}
+
 #dateTime,
 #location {
   font-weight: 600;

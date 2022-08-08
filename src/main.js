@@ -28,8 +28,6 @@ formatDate();
 let apiKey = "93791ed1c5ac3002a2880b95c37460d5";
 let apiEndpoint = `https://api.openweathermap.org/data/2.5/weather?`;
 
-function weekForecast(weather) {}
-
 function showWeather(response) {
   let temperatureElement = document.querySelector("h1");
   let descriptionElement = document.querySelector("#description");
@@ -42,14 +40,11 @@ function showWeather(response) {
   temperatureElement.innerHTML = `${temperature}`;
   descriptionElement.innerHTML = `${description}`;
   cityElement.innerHTML = `${city}`;
-
-  weekForecast(response);
 }
 
 function searchWeather(event) {
   event.preventDefault();
   let city = document.querySelector("#searchCity").value;
-
   let apiUrl = `${apiEndpoint}q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showWeather);
