@@ -32,10 +32,16 @@ function showWeather(response) {
   let temperatureElement = document.querySelector("h1");
   let descriptionElement = document.querySelector("#description");
   let cityElement = document.querySelector("#location");
+  let iconElement = document.querySelector("#weatherIcon");
 
   let temperature = Math.round(response.data.main.temp);
   let description = response.data.weather[0].description;
   let city = response.data.name;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 
   temperatureElement.innerHTML = `${temperature}`;
   descriptionElement.innerHTML = `${description}`;
