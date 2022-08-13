@@ -74,20 +74,4 @@ function getCoordinates() {
 let locationButton = document.querySelector("#locationButton");
 locationButton.addEventListener("click", getCoordinates);
 
-function changeUnit() {
-  let alternateUnit = document.querySelector("#adUnit");
-  let mainUnit = document.querySelector("#mainUnit");
-  let temperature = document.querySelector("h1");
-  if (alternateUnit.text == "ºF") {
-    alternateUnit.text = "ºC";
-    mainUnit.textContent = "ºF";
-    temperature.innerHTML = Math.round(temperature.textContent * 1.8 + 32);
-  } else {
-    alternateUnit.text = "ºF";
-    mainUnit.textContent = "ºC";
-    temperature.innerHTML = Math.round((temperature.textContent - 32) / 1.8);
-  }
-}
-
-let anotherUnit = document.querySelector("#adUnit");
-anotherUnit.addEventListener("click", changeUnit);
+findPosition("Chernihiv");
