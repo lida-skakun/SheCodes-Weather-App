@@ -77,4 +77,33 @@ function getCoordinates() {
 let locationButton = document.querySelector("#locationButton");
 locationButton.addEventListener("click", getCoordinates);
 
+let days = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
+
+function displayWeeklyForecast() {
+  let forecastElement = document.querySelector("#weekForecast");
+  let forecastHtml = `<div class="row dayForecast">`;
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+                <div class="col-8">${day}</div>
+                <div class="col-2">28</div>
+                <div class="col-2 nightTemperature">13</div>
+             
+              `;
+  });
+  forecastHtml = forecastHtml + `</div>`;
+  forecastElement.innerHTML = forecastHtml;
+  console.log(forecastHtml);
+}
+
+displayWeeklyForecast();
 searchWeather("Chernihiv");
