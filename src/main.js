@@ -89,20 +89,19 @@ let days = [
 
 function displayWeeklyForecast() {
   let forecastElement = document.querySelector("#weekForecast");
-  let forecastHtml = `<div class="row dayForecast">`;
+  let forecastHtml = `<div class="weekForecast">`;
   days.forEach(function (day) {
     forecastHtml =
       forecastHtml +
-      `
+      `<div class="row dayForecast">
                 <div class="col-8">${day}</div>
                 <div class="col-2">28</div>
                 <div class="col-2 nightTemperature">13</div>
-             
+             </div>
               `;
   });
   forecastHtml = forecastHtml + `</div>`;
   forecastElement.innerHTML = forecastHtml;
-  console.log(forecastHtml);
 }
 
 displayWeeklyForecast();

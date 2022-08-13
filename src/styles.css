@@ -51,11 +51,6 @@ a {
   color: #42a5f5;
 }
 
-#adUnit {
-  position: relative;
-  top: -25px;
-}
-
 #dateTime,
 #location {
   font-weight: 600;
@@ -78,6 +73,7 @@ a {
   border: 1.5px solid #42a5f5;
   font-weight: 800;
   border-radius: 0.2em;
+  padding: 5px;
 }
 
 .dayForecast {
