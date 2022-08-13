@@ -48,16 +48,19 @@ function showWeather(response) {
   cityElement.innerHTML = `${city}`;
 }
 
-function searchWeather(event) {
-  event.preventDefault();
-  let city = document.querySelector("#searchCity").value;
+function searchWeather(city) {
   let apiUrl = `${apiEndpoint}q=${city}&appid=${apiKey}&units=metric`;
-
   axios.get(apiUrl).then(showWeather);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityElement = document.querySelector("#searchCity").value;
+  searchWeather(cityElement);
+}
+
 let searchForm = document.querySelector(".searchForm");
-searchForm.addEventListener("submit", searchWeather);
+searchForm.addEventListener("submit", handleSubmit);
 
 function findPosition(location) {
   let latitude = location.coords.latitude;
@@ -74,4 +77,4 @@ function getCoordinates() {
 let locationButton = document.querySelector("#locationButton");
 locationButton.addEventListener("click", getCoordinates);
 
-findPosition("Chernihiv");
+searchWeather("Chernihiv");
