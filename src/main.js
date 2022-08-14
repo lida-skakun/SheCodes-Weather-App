@@ -28,6 +28,15 @@ formatDate();
 let apiKey = "93791ed1c5ac3002a2880b95c37460d5";
 let apiEndpoint = `https://api.openweathermap.org/data/2.5/weather?`;
 
+function showForecast(forecast) {}
+function searchWeeklyForecast(coordinates) {
+  let latitude = coordinates.lat;
+  let longitude = coordinates.lon;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(showForecast);
+}
+
 function showWeather(response) {
   let temperatureElement = document.querySelector("h1");
   let descriptionElement = document.querySelector("#description");
@@ -46,6 +55,8 @@ function showWeather(response) {
   temperatureElement.innerHTML = `${temperature}`;
   descriptionElement.innerHTML = `${description}`;
   cityElement.innerHTML = `${city}`;
+
+  searchWeeklyForecast(response.data.coord);
 }
 
 function searchWeather(city) {
