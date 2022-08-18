@@ -28,36 +28,16 @@ formatDate();
 let apiKey = "93791ed1c5ac3002a2880b95c37460d5";
 let apiEndpoint = `https://api.openweathermap.org/data/2.5/weather?`;
 
-function displayWeeklyForecast(response) {
-  let forecast = response.data.daily;
-
+function displayWeeklyForecast() {
   let forecastElement = document.querySelector("#weekForecast");
-  let forecastHtml = `<div class="weekForecast">`;
-
-  forecast.forEach(function (day, index) {
-    if (index < 8) {
-      forecastHtml =
-        forecastHtml +
-        `<div class="row dayForecast">
-                <div class="col-8">${day.dt}</div>
-                <div class="col-2">${Math.round(day.temp.max)}</div>
-                <div class="col-2 nightTemperature">${Math.round(
-                  day.temp.max
-                )}</div>
-             </div>
-              `;
-    }
-  });
-  forecastHtml = forecastHtml + `</div>`;
-  forecastElement.innerHTML = forecastHtml;
+  forecastElement.innerHTML = "Forecast";
 }
-
 function searchWeeklyForecast(coordinates) {
   let latitude = coordinates.lat;
   let longitude = coordinates.lon;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
-  axios.get(apiUrl).then(displayWeeklyForecast);
+  // axios.get(apiUrl).then(displayWeeklyForecast);
 }
 
 function showWeather(response) {
@@ -111,5 +91,5 @@ function getCoordinates() {
 let locationButton = document.querySelector("#locationButton");
 locationButton.addEventListener("click", getCoordinates);
 
-displayWeeklyForecast();
 searchWeather("Chernihiv");
+displayWeeklyForecast();
