@@ -30,13 +30,30 @@ let apiEndpoint = `https://api.openweathermap.org/data/2.5/weather?`;
 
 function displayWeeklyForecast() {
   let forecastElement = document.querySelector("#weekForecast");
-  forecastElement.innerHTML = `
+  let forecast = "";
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  days.forEach(function (dayOfWeek) {
+    forecast +=
+      // the same as "forecast + "
+      `
     <div class="row dayForecast">
             <div class="col-8">Monday</div>
             <div class="col-2">28</div>
             <div class="col-2 nightTemperature">13</div>
     </div>`;
+  });
+  forecastElement.innerHTML = forecast;
 }
+
 function searchWeeklyForecast(coordinates) {
   let latitude = coordinates.lat;
   let longitude = coordinates.lon;
