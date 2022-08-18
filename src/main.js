@@ -30,7 +30,12 @@ let apiEndpoint = `https://api.openweathermap.org/data/2.5/weather?`;
 
 function displayWeeklyForecast() {
   let forecastElement = document.querySelector("#weekForecast");
-  forecastElement.innerHTML = "Forecast";
+  forecastElement.innerHTML = `
+    <div class="row dayForecast">
+            <div class="col-8">Monday</div>
+            <div class="col-2">28</div>
+            <div class="col-2 nightTemperature">13</div>
+    </div>`;
 }
 function searchWeeklyForecast(coordinates) {
   let latitude = coordinates.lat;
