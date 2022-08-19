@@ -51,7 +51,7 @@ function displayWeeklyForecast(response) {
   let forecast = "";
   let days = response.data.daily;
   days.forEach(function (dayOfWeek, index) {
-    if (index < 8) {
+    if (index < 7) {
       forecast +=
         // the same as "forecast + "
         `
@@ -127,3 +127,4 @@ let locationButton = document.querySelector("#locationButton");
 locationButton.addEventListener("click", getCoordinates);
 
 searchWeather("Chernihiv");
+//змінити час відповідно до запиту, кнопка пошуку не виділяється
