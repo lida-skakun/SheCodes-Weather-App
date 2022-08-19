@@ -30,9 +30,9 @@ let apiEndpoint = `https://api.openweathermap.org/data/2.5/`;
 let currentWeather = "weather?";
 let weatherForecast = "onecall?";
 
-function displayWeeklyForecast() {
-  let forecastElement = document.querySelector("#weekForecast");
-  let forecast = "";
+function formatDayName(date) {
+  let newDate = new Date(date * 1000);
+  let realDay = newDate.getDay();
   let days = [
     "Sunday",
     "Monday",
@@ -43,14 +43,24 @@ function displayWeeklyForecast() {
     "Saturday",
   ];
 
+  return days[realDay];
+}
+
+function displayWeeklyForecast(response) {
+  console.log(response);
+  let forecastElement = document.querySelector("#weekForecast");
+  let forecast = "";
+  let days = response.data.daily;
   days.forEach(function (dayOfWeek) {
     forecast +=
       // the same as "forecast + "
       `
     <div class="row dayForecast">
-            <div class="col-8">${dayOfWeek}</div>
-            <div class="col-2">28</div>
-            <div class="col-2 nightTemperature">13</div>
+            <div class="col-8">${formatDayName(dayOfWeek.dt)}</div>
+            <div class="col-2">${Math.round(dayOfWeek.temp.max)}</div>
+            <div class="col-2 nightTemperature">${Math.round(
+              dayOfWeek.temp.min
+            )}</div>
     </div>`;
   });
   forecastElement.innerHTML = forecast;
