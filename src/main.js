@@ -47,14 +47,14 @@ function formatDayName(date) {
 }
 
 function displayWeeklyForecast(response) {
-  console.log(response);
   let forecastElement = document.querySelector("#weekForecast");
   let forecast = "";
   let days = response.data.daily;
-  days.forEach(function (dayOfWeek) {
-    forecast +=
-      // the same as "forecast + "
-      `
+  days.forEach(function (dayOfWeek, index) {
+    if (index < 8) {
+      forecast +=
+        // the same as "forecast + "
+        `
     <div class="row dayForecast">
             <div class="col-8">${formatDayName(dayOfWeek.dt)}</div>
             <div class="col-2">${Math.round(dayOfWeek.temp.max)}</div>
@@ -62,6 +62,7 @@ function displayWeeklyForecast(response) {
               dayOfWeek.temp.min
             )}</div>
     </div>`;
+    }
   });
   forecastElement.innerHTML = forecast;
 }
