@@ -26,9 +26,6 @@ function formatDate() {
 formatDate();
 
 let apiKey = "93791ed1c5ac3002a2880b95c37460d5";
-let apiEndpoint = `https://api.openweathermap.org/data/2.5/`;
-let currentWeather = "weather?";
-let weatherForecast = "onecall?";
 
 function formatDayName(date) {
   let newDate = new Date(date * 1000);
@@ -70,7 +67,7 @@ function displayWeeklyForecast(response) {
 function searchWeeklyForecast(coordinates) {
   let latitude = coordinates.lat;
   let longitude = coordinates.lon;
-  let apiUrl = `${apiEndpoint}${weatherForecast}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayWeeklyForecast);
 }
@@ -98,7 +95,7 @@ function showWeather(response) {
 }
 
 function searchWeather(city) {
-  let apiUrl = `${apiEndpoint}${currentWeather}q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -114,7 +111,7 @@ searchForm.addEventListener("submit", handleSubmit);
 function findPosition(location) {
   let latitude = location.coords.latitude;
   let longitude = location.coords.longitude;
-  let apiUrl = `${apiEndpoint}${currentWeather}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showWeather);
 }
